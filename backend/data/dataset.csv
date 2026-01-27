@@ -1,0 +1,659 @@
+sentence,label
+bossy,gender_bias
+bossy calmly,gender_bias
+bossy sarcastically,gender_bias
+bossy angrily,gender_bias
+bossy kindly,gender_bias
+emotional,gender_bias
+emotional calmly,gender_bias
+emotional sarcastically,gender_bias
+emotional angrily,gender_bias
+emotional kindly,gender_bias
+pretty,gender_bias
+pretty calmly,gender_bias
+pretty sarcastically,gender_bias
+pretty angrily,gender_bias
+pretty kindly,gender_bias
+aggressive,gender_bias
+aggressive calmly,gender_bias
+aggressive sarcastically,gender_bias
+aggressive angrily,gender_bias
+aggressive kindly,gender_bias
+manipulative,gender_bias
+manipulative calmly,gender_bias
+manipulative sarcastically,gender_bias
+manipulative angrily,gender_bias
+manipulative kindly,gender_bias
+overemotional,gender_bias
+overemotional calmly,gender_bias
+overemotional sarcastically,gender_bias
+overemotional angrily,gender_bias
+overemotional kindly,gender_bias
+clingy,gender_bias
+clingy calmly,gender_bias
+clingy sarcastically,gender_bias
+clingy angrily,gender_bias
+clingy kindly,gender_bias
+nagging,gender_bias
+nagging calmly,gender_bias
+nagging sarcastically,gender_bias
+nagging angrily,gender_bias
+nagging kindly,gender_bias
+submissive,gender_bias
+submissive calmly,gender_bias
+submissive sarcastically,gender_bias
+submissive angrily,gender_bias
+submissive kindly,gender_bias
+weak,gender_bias
+weak calmly,gender_bias
+weak sarcastically,gender_bias
+weak angrily,gender_bias
+weak kindly,gender_bias
+dominant,gender_bias
+dominant calmly,gender_bias
+dominant sarcastically,gender_bias
+dominant angrily,gender_bias
+dominant kindly,gender_bias
+assertive,gender_bias
+assertive calmly,gender_bias
+assertive sarcastically,gender_bias
+assertive angrily,gender_bias
+assertive kindly,gender_bias
+irrational,gender_bias
+irrational calmly,gender_bias
+irrational sarcastically,gender_bias
+irrational angrily,gender_bias
+irrational kindly,gender_bias
+oversensitive,gender_bias
+oversensitive calmly,gender_bias
+oversensitive sarcastically,gender_bias
+oversensitive angrily,gender_bias
+oversensitive kindly,gender_bias
+slow,age_bias
+slow calmly,age_bias
+slow sarcastically,age_bias
+slow angrily,age_bias
+slow kindly,age_bias
+old,age_bias
+old calmly,age_bias
+old sarcastically,age_bias
+old angrily,age_bias
+old kindly,age_bias
+young,age_bias
+young calmly,age_bias
+young sarcastically,age_bias
+young angrily,age_bias
+young kindly,age_bias
+grumpy,age_bias
+grumpy calmly,age_bias
+grumpy sarcastically,age_bias
+grumpy angrily,age_bias
+grumpy kindly,age_bias
+immature,age_bias
+immature calmly,age_bias
+immature sarcastically,age_bias
+immature angrily,age_bias
+immature kindly,age_bias
+childlike,age_bias
+childlike calmly,age_bias
+childlike sarcastically,age_bias
+childlike angrily,age_bias
+childlike kindly,age_bias
+frail,age_bias
+frail calmly,age_bias
+frail sarcastically,age_bias
+frail angrily,age_bias
+frail kindly,age_bias
+cranky,age_bias
+cranky calmly,age_bias
+cranky sarcastically,age_bias
+cranky angrily,age_bias
+cranky kindly,age_bias
+clueless,age_bias
+clueless calmly,age_bias
+clueless sarcastically,age_bias
+clueless angrily,age_bias
+clueless kindly,age_bias
+forgetful,age_bias
+forgetful calmly,age_bias
+forgetful sarcastically,age_bias
+forgetful angrily,age_bias
+forgetful kindly,age_bias
+terrorist,religion_bias
+terrorist calmly,religion_bias
+terrorist sarcastically,religion_bias
+terrorist angrily,religion_bias
+terrorist kindly,religion_bias
+extremist,religion_bias
+extremist calmly,religion_bias
+extremist sarcastically,religion_bias
+extremist angrily,religion_bias
+extremist kindly,religion_bias
+fanatic,religion_bias
+fanatic calmly,religion_bias
+fanatic sarcastically,religion_bias
+fanatic angrily,religion_bias
+fanatic kindly,religion_bias
+zealot,religion_bias
+zealot calmly,religion_bias
+zealot sarcastically,religion_bias
+zealot angrily,religion_bias
+zealot kindly,religion_bias
+radical,religion_bias
+radical calmly,religion_bias
+radical sarcastically,religion_bias
+radical angrily,religion_bias
+radical kindly,religion_bias
+heathen,religion_bias
+heathen calmly,religion_bias
+heathen sarcastically,religion_bias
+heathen angrily,religion_bias
+heathen kindly,religion_bias
+infidel,religion_bias
+infidel calmly,religion_bias
+infidel sarcastically,religion_bias
+infidel angrily,religion_bias
+infidel kindly,religion_bias
+pagan,religion_bias
+pagan calmly,religion_bias
+pagan sarcastically,religion_bias
+pagan angrily,religion_bias
+pagan kindly,religion_bias
+cultist,religion_bias
+cultist calmly,religion_bias
+cultist sarcastically,religion_bias
+cultist angrily,religion_bias
+cultist kindly,religion_bias
+heretic,religion_bias
+heretic calmly,religion_bias
+heretic sarcastically,religion_bias
+heretic angrily,religion_bias
+heretic kindly,religion_bias
+lazy,class_bias
+lazy calmly,class_bias
+lazy sarcastically,class_bias
+lazy angrily,class_bias
+lazy kindly,class_bias
+selfish,class_bias
+selfish calmly,class_bias
+selfish sarcastically,class_bias
+selfish angrily,class_bias
+selfish kindly,class_bias
+rich,class_bias
+rich calmly,class_bias
+rich sarcastically,class_bias
+rich angrily,class_bias
+rich kindly,class_bias
+poor,class_bias
+poor calmly,class_bias
+poor sarcastically,class_bias
+poor angrily,class_bias
+poor kindly,class_bias
+penniless,class_bias
+penniless calmly,class_bias
+penniless sarcastically,class_bias
+penniless angrily,class_bias
+penniless kindly,class_bias
+wealthy,class_bias
+wealthy calmly,class_bias
+wealthy sarcastically,class_bias
+wealthy angrily,class_bias
+wealthy kindly,class_bias
+snob,class_bias
+snob calmly,class_bias
+snob sarcastically,class_bias
+snob angrily,class_bias
+snob kindly,class_bias
+chav,class_bias
+chav calmly,class_bias
+chav sarcastically,class_bias
+chav angrily,class_bias
+chav kindly,class_bias
+posh,class_bias
+posh calmly,class_bias
+posh sarcastically,class_bias
+posh angrily,class_bias
+posh kindly,class_bias
+ghetto,class_bias
+ghetto calmly,class_bias
+ghetto sarcastically,class_bias
+ghetto angrily,class_bias
+ghetto kindly,class_bias
+dumb,appearance_bias
+dumb calmly,appearance_bias
+dumb sarcastically,appearance_bias
+dumb angrily,appearance_bias
+dumb kindly,appearance_bias
+ugly,appearance_bias
+ugly calmly,appearance_bias
+ugly sarcastically,appearance_bias
+ugly angrily,appearance_bias
+ugly kindly,appearance_bias
+blonde,appearance_bias
+blonde calmly,appearance_bias
+blonde sarcastically,appearance_bias
+blonde angrily,appearance_bias
+blonde kindly,appearance_bias
+sloppy,appearance_bias
+sloppy calmly,appearance_bias
+sloppy sarcastically,appearance_bias
+sloppy angrily,appearance_bias
+sloppy kindly,appearance_bias
+freak,appearance_bias
+freak calmly,appearance_bias
+freak sarcastically,appearance_bias
+freak angrily,appearance_bias
+freak kindly,appearance_bias
+savage,race_bias
+savage calmly,race_bias
+savage sarcastically,race_bias
+savage angrily,race_bias
+savage kindly,race_bias
+immigrant,race_bias
+immigrant calmly,race_bias
+immigrant sarcastically,race_bias
+immigrant angrily,race_bias
+immigrant kindly,race_bias
+asian,race_bias
+asian calmly,race_bias
+asian sarcastically,race_bias
+asian angrily,race_bias
+asian kindly,race_bias
+foreign,race_bias
+foreign calmly,race_bias
+foreign sarcastically,race_bias
+foreign angrily,race_bias
+foreign kindly,race_bias
+mongrel,race_bias
+mongrel calmly,race_bias
+mongrel sarcastically,race_bias
+mongrel angrily,race_bias
+mongrel kindly,race_bias
+arrogant,race_bias
+arrogant calmly,race_bias
+arrogant sarcastically,race_bias
+arrogant angrily,race_bias
+arrogant kindly,race_bias
+gay,sexuality_bias
+gay calmly,sexuality_bias
+gay sarcastically,sexuality_bias
+gay angrily,sexuality_bias
+gay kindly,sexuality_bias
+lesbian,sexuality_bias
+lesbian calmly,sexuality_bias
+lesbian sarcastically,sexuality_bias
+lesbian angrily,sexuality_bias
+lesbian kindly,sexuality_bias
+slutty,sexuality_bias
+slutty calmly,sexuality_bias
+slutty sarcastically,sexuality_bias
+slutty angrily,sexuality_bias
+slutty kindly,sexuality_bias
+promiscuous,sexuality_bias
+promiscuous calmly,sexuality_bias
+promiscuous sarcastically,sexuality_bias
+promiscuous angrily,sexuality_bias
+promiscuous kindly,sexuality_bias
+disabled,ability_bias
+disabled calmly,ability_bias
+disabled sarcastically,ability_bias
+disabled angrily,ability_bias
+disabled kindly,ability_bias
+handicapped,ability_bias
+handicapped calmly,ability_bias
+handicapped sarcastically,ability_bias
+handicapped angrily,ability_bias
+handicapped kindly,ability_bias
+crippled,ability_bias
+crippled calmly,ability_bias
+crippled sarcastically,ability_bias
+crippled angrily,ability_bias
+crippled kindly,ability_bias
+mentally ill,ability_bias
+mentally ill calmly,ability_bias
+mentally ill sarcastically,ability_bias
+mentally ill angrily,ability_bias
+mentally ill kindly,ability_bias
+clumsy,ability_bias
+clumsy calmly,ability_bias
+clumsy sarcastically,ability_bias
+clumsy angrily,ability_bias
+clumsy kindly,ability_bias
+crazy,tone_bias
+crazy calmly,tone_bias
+crazy sarcastically,tone_bias
+crazy angrily,tone_bias
+crazy kindly,tone_bias
+ridiculous,tone_bias
+ridiculous calmly,tone_bias
+ridiculous sarcastically,tone_bias
+ridiculous angrily,tone_bias
+ridiculous kindly,tone_bias
+annoying,tone_bias
+annoying calmly,tone_bias
+annoying sarcastically,tone_bias
+annoying angrily,tone_bias
+annoying kindly,tone_bias
+childish,tone_bias
+childish calmly,tone_bias
+childish sarcastically,tone_bias
+childish angrily,tone_bias
+childish kindly,tone_bias
+incompetent,tone_bias
+incompetent calmly,tone_bias
+incompetent sarcastically,tone_bias
+incompetent angrily,tone_bias
+incompetent kindly,tone_bias
+you'll never get it,tone_bias
+you'll never get it calmly,tone_bias
+you'll never get it sarcastically,tone_bias
+you'll never get it angrily,tone_bias
+you'll never get it kindly,tone_bias
+stop talking,tone_bias
+stop talking calmly,tone_bias
+stop talking sarcastically,tone_bias
+stop talking angrily,tone_bias
+stop talking kindly,tone_bias
+just do,tone_bias
+just do calmly,tone_bias
+just do sarcastically,tone_bias
+just do angrily,tone_bias
+just do kindly,tone_bias
+overreacting,tone_bias
+overreacting calmly,tone_bias
+overreacting sarcastically,tone_bias
+overreacting angrily,tone_bias
+overreacting kindly,tone_bias
+pathetic,tone_bias
+pathetic calmly,tone_bias
+pathetic sarcastically,tone_bias
+pathetic angrily,tone_bias
+pathetic kindly,tone_bias
+overconfident,tone_bias
+overconfident calmly,tone_bias
+overconfident sarcastically,tone_bias
+overconfident angrily,tone_bias
+overconfident kindly,tone_bias
+nonsense,tone_bias
+nonsense calmly,tone_bias
+nonsense sarcastically,tone_bias
+nonsense angrily,tone_bias
+nonsense kindly,tone_bias
+pointless effort,tone_bias
+pointless effort calmly,tone_bias
+pointless effort sarcastically,tone_bias
+pointless effort angrily,tone_bias
+pointless effort kindly,tone_bias
+ridiculous mistake,tone_bias
+ridiculous mistake calmly,tone_bias
+ridiculous mistake sarcastically,tone_bias
+ridiculous mistake angrily,tone_bias
+ridiculous mistake kindly,tone_bias
+disrespectful attitude,tone_bias
+disrespectful attitude calmly,tone_bias
+disrespectful attitude sarcastically,tone_bias
+disrespectful attitude angrily,tone_bias
+disrespectful attitude kindly,tone_bias
+stupid,tone_bias
+stupid calmly,tone_bias
+stupid sarcastically,tone_bias
+stupid angrily,tone_bias
+stupid kindly,tone_bias
+ignorant,tone_bias
+ignorant calmly,tone_bias
+ignorant sarcastically,tone_bias
+ignorant angrily,tone_bias
+ignorant kindly,tone_bias
+foolish,tone_bias
+foolish calmly,tone_bias
+foolish sarcastically,tone_bias
+foolish angrily,tone_bias
+foolish kindly,tone_bias
+silly,tone_bias
+silly calmly,tone_bias
+silly sarcastically,tone_bias
+silly angrily,tone_bias
+silly kindly,tone_bias
+clueless,tone_bias
+clueless calmly,tone_bias
+clueless sarcastically,tone_bias
+clueless angrily,tone_bias
+clueless kindly,tone_bias
+unintelligent,tone_bias
+unintelligent calmly,tone_bias
+unintelligent sarcastically,tone_bias
+unintelligent angrily,tone_bias
+unintelligent kindly,tone_bias
+lazy,tone_bias
+lazy calmly,tone_bias
+lazy sarcastically,tone_bias
+lazy angrily,tone_bias
+lazy kindly,tone_bias
+careless,tone_bias
+careless calmly,tone_bias
+careless sarcastically,tone_bias
+careless angrily,tone_bias
+careless kindly,tone_bias
+irresponsible,tone_bias
+irresponsible calmly,tone_bias
+irresponsible sarcastically,tone_bias
+irresponsible angrily,tone_bias
+irresponsible kindly,tone_bias
+unreliable,tone_bias
+unreliable calmly,tone_bias
+unreliable sarcastically,tone_bias
+unreliable angrily,tone_bias
+unreliable kindly,tone_bias
+reckless,tone_bias
+reckless calmly,tone_bias
+reckless sarcastically,tone_bias
+reckless angrily,tone_bias
+reckless kindly,tone_bias
+overemotional,tone_bias
+overemotional calmly,tone_bias
+overemotional sarcastically,tone_bias
+overemotional angrily,tone_bias
+overemotional kindly,tone_bias
+dramatic,tone_bias
+dramatic calmly,tone_bias
+dramatic sarcastically,tone_bias
+dramatic angrily,tone_bias
+dramatic kindly,tone_bias
+annoying,tone_bias
+annoying calmly,tone_bias
+annoying sarcastically,tone_bias
+annoying angrily,tone_bias
+annoying kindly,tone_bias
+pushy,tone_bias
+pushy calmly,tone_bias
+pushy sarcastically,tone_bias
+pushy angrily,tone_bias
+pushy kindly,tone_bias
+controlling,tone_bias
+controlling calmly,tone_bias
+controlling sarcastically,tone_bias
+controlling angrily,tone_bias
+controlling kindly,tone_bias
+demanding,tone_bias
+demanding calmly,tone_bias
+demanding sarcastically,tone_bias
+demanding angrily,tone_bias
+demanding kindly,tone_bias
+critical,tone_bias
+critical calmly,tone_bias
+critical sarcastically,tone_bias
+critical angrily,tone_bias
+critical kindly,tone_bias
+judgmental,tone_bias
+judgmental calmly,tone_bias
+judgmental sarcastically,tone_bias
+judgmental angrily,tone_bias
+judgmental kindly,tone_bias
+sarcastic,tone_bias
+sarcastic calmly,tone_bias
+sarcastic sarcastically,tone_bias
+sarcastic angrily,tone_bias
+sarcastic kindly,tone_bias
+mocking,tone_bias
+mocking calmly,tone_bias
+mocking sarcastically,tone_bias
+mocking angrily,tone_bias
+mocking kindly,tone_bias
+condescending,tone_bias
+condescending calmly,tone_bias
+condescending sarcastically,tone_bias
+condescending angrily,tone_bias
+condescending kindly,tone_bias
+belittling,tone_bias
+belittling calmly,tone_bias
+belittling sarcastically,tone_bias
+belittling angrily,tone_bias
+belittling kindly,tone_bias
+ridiculing,tone_bias
+ridiculing calmly,tone_bias
+ridiculing sarcastically,tone_bias
+ridiculing angrily,tone_bias
+ridiculing kindly,tone_bias
+patronizing,tone_bias
+patronizing calmly,tone_bias
+patronizing sarcastically,tone_bias
+patronizing angrily,tone_bias
+patronizing kindly,tone_bias
+mock,tone_bias
+mock calmly,tone_bias
+mock sarcastically,tone_bias
+mock angrily,tone_bias
+mock kindly,tone_bias
+condescend,tone_bias
+condescend calmly,tone_bias
+condescend sarcastically,tone_bias
+condescend angrily,tone_bias
+condescend kindly,tone_bias
+harsh,tone_bias
+harsh calmly,tone_bias
+harsh sarcastically,tone_bias
+harsh angrily,tone_bias
+harsh kindly,tone_bias
+impolite,tone_bias
+impolite calmly,tone_bias
+impolite sarcastically,tone_bias
+impolite angrily,tone_bias
+impolite kindly,tone_bias
+rude,tone_bias
+rude calmly,tone_bias
+rude sarcastically,tone_bias
+rude angrily,tone_bias
+rude kindly,tone_bias
+mean,tone_bias
+mean calmly,tone_bias
+mean sarcastically,tone_bias
+mean angrily,tone_bias
+mean kindly,tone_bias
+spiteful,tone_bias
+spiteful calmly,tone_bias
+spiteful sarcastically,tone_bias
+spiteful angrily,tone_bias
+spiteful kindly,tone_bias
+hostile,tone_bias
+hostile calmly,tone_bias
+hostile sarcastically,tone_bias
+hostile angrily,tone_bias
+hostile kindly,tone_bias
+angry,tone_bias
+angry calmly,tone_bias
+angry sarcastically,tone_bias
+angry angrily,tone_bias
+angry kindly,tone_bias
+furious,tone_bias
+furious calmly,tone_bias
+furious sarcastically,tone_bias
+furious angrily,tone_bias
+furious kindly,tone_bias
+mad,tone_bias
+mad calmly,tone_bias
+mad sarcastically,tone_bias
+mad angrily,tone_bias
+mad kindly,tone_bias
+upset,tone_bias
+upset calmly,tone_bias
+upset sarcastically,tone_bias
+upset angrily,tone_bias
+upset kindly,tone_bias
+frustrated,tone_bias
+frustrated calmly,tone_bias
+frustrated sarcastically,tone_bias
+frustrated angrily,tone_bias
+frustrated kindly,tone_bias
+impatient,tone_bias
+impatient calmly,tone_bias
+impatient sarcastically,tone_bias
+impatient angrily,tone_bias
+impatient kindly,tone_bias
+irritated,tone_bias
+irritated calmly,tone_bias
+irritated sarcastically,tone_bias
+irritated angrily,tone_bias
+irritated kindly,tone_bias
+annoyed,tone_bias
+annoyed calmly,tone_bias
+annoyed sarcastically,tone_bias
+annoyed angrily,tone_bias
+annoyed kindly,tone_bias
+disrespectful,tone_bias
+disrespectful calmly,tone_bias
+disrespectful sarcastically,tone_bias
+disrespectful angrily,tone_bias
+disrespectful kindly,tone_bias
+condescendingly,tone_bias
+condescendingly calmly,tone_bias
+condescendingly sarcastically,tone_bias
+condescendingly angrily,tone_bias
+condescendingly kindly,tone_bias
+pathetic attempt,tone_bias
+pathetic attempt calmly,tone_bias
+pathetic attempt sarcastically,tone_bias
+pathetic attempt angrily,tone_bias
+pathetic attempt kindly,tone_bias
+childlike,age_bias
+childlike calmly,age_bias
+childlike sarcastically,age_bias
+childlike angrily,age_bias
+childlike kindly,age_bias
+frail,age_bias
+frail calmly,age_bias
+frail sarcastically,age_bias
+frail angrily,age_bias
+frail kindly,age_bias
+cranky,age_bias
+cranky calmly,age_bias
+cranky sarcastically,age_bias
+cranky angrily,age_bias
+cranky kindly,age_bias
+clueless,age_bias
+clueless calmly,age_bias
+clueless sarcastically,age_bias
+clueless angrily,age_bias
+clueless kindly,age_bias
+forgetful,age_bias
+forgetful calmly,age_bias
+forgetful sarcastically,age_bias
+forgetful angrily,age_bias
+forgetful kindly,age_bias
+senile,age_bias
+senile calmly,age_bias
+senile sarcastically,age_bias
+senile angrily,age_bias
+senile kindly,age_bias
+terrorist,religion_bias
+extremist,religion_bias
+fanatic,religion_bias
+zealot,religion_bias
+radical,religion_bias
+heathen,religion_bias
+infidel,religion_bias
+pagan,religion_bias
+cultist,religion_bias
+heretic,religion_bias
+fundamentalist,religion_bias
+pious,religion_bias
+biased,religion_bias
