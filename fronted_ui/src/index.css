@@ -3,7 +3,7 @@
 body {
   font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #0f172a, #0ea5e9); /* deep blue to sea green */
-  color: #ffffff;
+  color: #0f172a;
   margin: 0;
   padding: 0;
   min-height: 100vh;
