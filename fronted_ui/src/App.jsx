@@ -83,7 +83,6 @@ function App() {
 
       <div className="transcript">
         {text || <span className="placeholder">Your speech will appear here...</span>}
-        ho laala ho laala
       </div>
     </div>
   );
