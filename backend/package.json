@@ -4,9 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +13,7 @@
   "dependencies": {
     "cors": "^2.8.6",
     "csv-parser": "^3.2.0",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11"
   }
 }

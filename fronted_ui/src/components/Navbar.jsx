@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { useTheme } from "../contexts/ThemeContext"; // Import the hook
 
 export default function Navbar() {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
+  const { theme, toggleTheme } = useTheme(); // Consume theme state
 
   const getInitials = (name) => {
     return name
@@ -25,23 +27,45 @@ export default function Navbar() {
           </span>
         </div>
 
-        <div className="nav-right">
+        <div className="nav-right" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          {/* THEME TOGGLE BUTTON */}
+          <button 
+            className="theme-toggle-btn" 
+            onClick={toggleTheme}
+            style={{
+              background: 'none',
+              border: '1px solid var(--text-muted)',
+              color: 'var(--text-main)',
+              borderRadius: '50%',
+              width: '32px',
+              height: '32px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '1.1rem'
+            }}
+          >
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
+
           {currentUser ? (
             <>
               <button className="nav-link" onClick={() => navigate("/tool")}>
                 Tool
               </button>
               <div 
-                className="nav-link" 
+                className="nav-link profile-chip" 
                 onClick={() => navigate("/profile")}
                 style={{ 
                   display: 'flex', 
                   alignItems: 'center', 
                   gap: '8px',
-                  background: 'rgba(255,255,255,0.1)',
+                  background: 'var(--input-bg)', // Dynamic background
                   padding: '6px 12px',
                   borderRadius: '99px',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  border: '1px solid rgba(128,128,128,0.2)'
                 }}
               >
                 <div style={{
@@ -54,15 +78,18 @@ export default function Navbar() {
                   fontWeight: 'bold',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  overflow: 'hidden'
                 }}>
                    {currentUser.photoURL ? (
-                      <img src={currentUser.photoURL} alt="avatar" style={{width: '100%', height: '100%', borderRadius: '50%'}} />
+                      <img src={currentUser.photoURL} alt="avatar" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
                    ) : (
                       getInitials(currentUser.displayName || currentUser.email)
                    )}
                 </div>
-                <span>{currentUser.displayName || currentUser.email.split('@')[0]}</span>
+                <span style={{ color: 'var(--text-main)' }}>
+                  {currentUser.displayName || currentUser.email.split('@')[0]}
+                </span>
               </div>
             </>
           ) : (
