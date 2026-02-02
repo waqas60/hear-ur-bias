@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const { PORT } = require("./config/server");
-const biasRoutes = require("./routes/biasRoutes");
+const { PORT } = require("./src/config/server");
+const biasRoutes = require("./src/routes/biasRoutes");
 
 const app = express();
 
