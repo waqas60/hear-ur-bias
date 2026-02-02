@@ -41,7 +41,6 @@ export default function Signup() {
 
   return (
     <>
-      <Navbar />
       <div className="auth-container">
         <h2 className="auth-title">Sign Up</h2>
         {error && <div className="error-alert">{error}</div>}

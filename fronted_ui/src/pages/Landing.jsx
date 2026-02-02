@@ -6,7 +6,6 @@ const Landing = () => {
 
   return (
     <div className="landing-root">
-      <Navbar />
       <main className="hero">
         <h1>
           Check your speech
@@ -25,7 +24,7 @@ const Landing = () => {
           </button>
         </div>
 
-        <div className="video-section">
+        <div className="video-section1" >
           <video src="../src/assets/sample.mp4"></video>
         </div>
 
