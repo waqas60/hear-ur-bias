@@ -4,7 +4,7 @@ const csv = require("csv-parser");
 
 let biasedData = [];
 
-const csvPath = path.join(__dirname, "data", "dataset.csv");
+const csvPath = path.join(__dirname, "../../data", "dataset.csv");
 
 fs.createReadStream(csvPath)
   .pipe(csv())
