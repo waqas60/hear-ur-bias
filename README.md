@@ -2,6 +2,8 @@
 
 **Hear Ur Bias** is a web app that helps you spot bias and unprofessional language in your own words. Speak or type text, then get instant feedback on toxicity, sentiment, emotion, and a professionalism score—plus optional AI-powered rephrasing to sound clearer and more professional.
 
+![Alt text](<img width="1319" height="845" alt="app" src="https://github.com/user-attachments/assets/a182e174-e815-4e19-8304-1f48f7b646fc" />)
+
 ## How to run
 
 ### 1. Python API (analysis models)
