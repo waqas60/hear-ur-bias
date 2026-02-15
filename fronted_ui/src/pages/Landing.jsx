@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import '../styles/hero.css'
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -7,10 +7,10 @@ const Landing = () => {
   return (
     <div className="landing-root">
       <main className="hero">
-        <h1>
+        <h1 className="highlight">
           Check your speech
           <br />
-          <span className="highlight">before it speaks for you</span>
+          before it speaks for you
         </h1>
 
         <p className="hero-desc">
@@ -23,12 +23,6 @@ const Landing = () => {
             Try tool
           </button>
         </div>
-
-        <div className="video-section1" >
-          <video src="../src/assets/sample.mp4"></video>
-        </div>
-
-        <p className="trust">Free for personal use</p>
       </main>
     </div>
   );

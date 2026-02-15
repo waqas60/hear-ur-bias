@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import "../styles/profile.css"
 
 export default function Profile() {
   const [error, setError] = useState("");

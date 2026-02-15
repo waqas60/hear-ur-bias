@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import SpeechToText from "../components/SpeechToText";
 
 const Tool = () => {
