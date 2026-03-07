@@ -1,9 +1,11 @@
 import { useState, useRef } from "react";
 import AIRephraseDirect from "./AIRephraseDirect";
+import DOMPurify from 'dompurify';
 import "../styles/speechtotext.css";
 
 const SpeechToText = () => {
   const [text, setText] = useState("");
+  const [interimText, setInterimText] = useState("");
   const [isListening, setIsListening] = useState(false);
   const [analysisResult, setAnalysisResult] = useState(null);
   const [isChecking, setIsChecking] = useState(false);
@@ -26,15 +28,34 @@ const SpeechToText = () => {
     recognition.interimResults = true;
 
     recognition.onresult = (event) => {
-      const transcript = Array.from(event.results)
-        .map((result) => result[0].transcript)
-        .join("");
-      setText((prev) => (prev ? prev + " " + transcript : transcript));
+      let finalTranscript = "";
+      let interimTranscript = "";
+
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const result = event.results[i];
+
+        if (result.isFinal) {
+          finalTranscript += result[0].transcript + " ";
+        } else {
+          interimTranscript += result[0].transcript;
+        }
+      }
+
+      if (finalTranscript) {
+        setText((prev) => prev + finalTranscript);
+      }
+
+      setInterimText(interimTranscript);
     };
 
     recognition.onerror = (event) => {
       setError(`Speech recognition error: ${event.error}`);
       setIsListening(false);
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+      setInterimText("");
     };
 
     recognition.start();
@@ -46,10 +67,12 @@ const SpeechToText = () => {
   const stopListening = () => {
     recognitionRef.current?.stop();
     setIsListening(false);
+    setInterimText("");
   };
 
   const clearText = () => {
     setText("");
+    setInterimText("");
     setAnalysisResult(null);
     setError("");
   };
@@ -57,21 +80,31 @@ const SpeechToText = () => {
   const analyzeText = async () => {
     if (!text) return;
 
+    // Sanitize input before sending
+    const cleanText = DOMPurify.sanitize(text);
+
     setIsChecking(true);
     setAnalysisResult(null);
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/analyze", {
+      // Use environment variable for API URL in production
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const response = await fetch(`${apiUrl}/analyze`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({ text: cleanText }),
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const data = await response.json();
       setAnalysisResult(data);
       setRephraseTrigger((prev) => prev + 1);
-    } catch {
+    } catch (err) {
+      console.error(err);
       setError("Failed to analyze text.");
     } finally {
       setIsChecking(false);
@@ -95,13 +128,27 @@ const SpeechToText = () => {
   return (
     <div className="container">
       <div className="controls">
-        <button className="primary-btn" onClick={startListening} disabled={isListening}>
+        <button
+          className="primary-btn"
+          onClick={startListening}
+          disabled={isListening}
+        >
           {isListening ? "Recording..." : "Start Recording"}
         </button>
-        <button className="secondary-btn" onClick={stopListening} disabled={!isListening}>
+
+        <button
+          className="secondary-btn"
+          onClick={stopListening}
+          disabled={!isListening}
+        >
           Stop
         </button>
-        <button className="btn-primary" onClick={clearText} disabled={!text && !analysisResult}>
+
+        <button
+          className="btn-primary"
+          onClick={clearText}
+          disabled={!text && !analysisResult}
+        >
           Clear
         </button>
       </div>
@@ -110,13 +157,17 @@ const SpeechToText = () => {
 
       <div className="transcript">
         <textarea
-          value={text}
+          value={text + interimText}
           onChange={(e) => setText(e.target.value)}
           placeholder="Type here or use voice input..."
         />
       </div>
 
-      <button className="btn-primary" onClick={analyzeText} disabled={!text || isChecking}>
+      <button
+        className="btn-primary"
+        onClick={analyzeText}
+        disabled={!text || isChecking}
+      >
         {isChecking ? "Analyzing..." : "Analyze Text"}
       </button>
 
@@ -188,7 +239,9 @@ const SpeechToText = () => {
                 ))}
               </ul>
             ) : (
-              <span className="badge badge-good">No significant issues detected!</span>
+              <span className="badge badge-good">
+                No significant issues detected!
+              </span>
             )}
           </div>
 

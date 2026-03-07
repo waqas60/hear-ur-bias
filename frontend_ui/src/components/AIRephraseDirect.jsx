@@ -15,14 +15,21 @@ export default function AIRephraseDirect({ text, trigger }) {
       setError("");
 
       try {
-        const response = await fetch("http://localhost:5000/rephrase", {
+        const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+        const response = await fetch(`${apiUrl}/rephrase`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ text }),
         });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
         setRephrased(data.rephrased);
-      } catch {
+      } catch (err) {
+        console.error(err);
         setError("Failed to rephrase text.");
       } finally {
         setLoading(false);

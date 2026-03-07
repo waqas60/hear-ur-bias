@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Navbar from "../components/Navbar";
+import DOMPurify from 'dompurify';
 
 export default function Signup() {
   const emailRef = useRef();
@@ -22,13 +23,25 @@ export default function Signup() {
       return setError("Passwords do not match");
     }
 
+    const sanitizedName = DOMPurify.sanitize(nameRef.current.value);
+    // Basic Email Regex for validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailRef.current.value)) {
+        return setError("Invalid email format");
+    }
+    
+    // Password Strength Check
+    if (passwordRef.current.value.length < 6) {
+        return setError("Password must be at least 6 characters");
+    }
+
     try {
       setError("");
       setLoading(true);
       await signup(
         emailRef.current.value,
         passwordRef.current.value,
-        nameRef.current.value
+        sanitizedName
       );
       navigate("/tool");
     } catch (err) {

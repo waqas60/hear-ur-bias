@@ -14,10 +14,19 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    
+    // Basic format validation
+    const email = emailRef.current.value.trim();
+    const password = passwordRef.current.value;
+
+    if (!email || !password) {
+        return setError("Please enter both email and password");
+    }
+
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+      await login(email, password);
       navigate("/tool");
     } catch (err) {
       setError("Failed to log in: " + err.message);
