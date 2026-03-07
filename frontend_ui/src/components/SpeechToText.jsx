@@ -136,7 +136,7 @@ const SpeechToText = () => {
       const response = await fetch(`${apiUrl}/analyze`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: cleanText }),
+        body: JSON.stringify({ text }),
       });
 
       if (!response.ok) {
