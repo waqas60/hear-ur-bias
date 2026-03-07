@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import AIRephraseDirect from "./AIRephraseDirect";
 import DOMPurify from 'dompurify';
 import "../styles/speechtotext.css";
@@ -10,16 +10,34 @@ const SpeechToText = () => {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [isChecking, setIsChecking] = useState(false);
   const [error, setError] = useState("");
-  const recognitionRef = useRef(null);
   const [rephraseTrigger, setRephraseTrigger] = useState(0);
+
+  const recognitionRef = useRef(null);
+  const listeningRef = useRef(false); // prevents stale state bug
+
+  useEffect(() => {
+    return () => {
+      // cleanup on unmount
+      if (recognitionRef.current) {
+        recognitionRef.current.stop();
+        recognitionRef.current = null;
+      }
+    };
+  }, []);
 
   const startListening = () => {
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
-      alert("Speech recognition not supported. Please use Chrome.");
+      setError("Speech recognition not supported. Use Chrome.");
       return;
+    }
+
+    // Prevent multiple instances
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      recognitionRef.current = null;
     }
 
     const recognition = new SpeechRecognition();
@@ -49,8 +67,24 @@ const SpeechToText = () => {
     };
 
     recognition.onerror = (event) => {
+      // Ignore silence errors
+      if (event.error === "no-speech") return;
+      if (event.error === "aborted") return;
+
       setError(`Speech recognition error: ${event.error}`);
       setIsListening(false);
+      listeningRef.current = false;
+    };
+
+    recognition.onend = () => {
+      // Auto restart only if still listening
+      if (listeningRef.current) {
+        try {
+          recognition.start();
+        } catch {
+          // prevent crash if already started
+        }
+      }
     };
 
     recognition.onend = () => {
@@ -58,14 +92,26 @@ const SpeechToText = () => {
       setInterimText("");
     };
 
-    recognition.start();
-    recognitionRef.current = recognition;
-    setIsListening(true);
-    setError("");
+    try {
+      recognition.start();
+      recognitionRef.current = recognition;
+      listeningRef.current = true;
+      setIsListening(true);
+      setError("");
+    } catch (err) {
+      setError("Microphone start failed.");
+    }
   };
 
   const stopListening = () => {
-    recognitionRef.current?.stop();
+    listeningRef.current = false;
+
+    if (recognitionRef.current) {
+      recognitionRef.current.onend = null; // prevent restart
+      recognitionRef.current.stop();
+      recognitionRef.current = null;
+    }
+
     setIsListening(false);
     setInterimText("");
   };
@@ -79,9 +125,6 @@ const SpeechToText = () => {
 
   const analyzeText = async () => {
     if (!text) return;
-
-    // Sanitize input before sending
-    const cleanText = DOMPurify.sanitize(text);
 
     setIsChecking(true);
     setAnalysisResult(null);
@@ -163,11 +206,7 @@ const SpeechToText = () => {
         />
       </div>
 
-      <button
-        className="btn-primary"
-        onClick={analyzeText}
-        disabled={!text || isChecking}
-      >
+      <button className="btn-primary" onClick={analyzeText} disabled={!text || isChecking}>
         {isChecking ? "Analyzing..." : "Analyze Text"}
       </button>
 
@@ -178,26 +217,12 @@ const SpeechToText = () => {
             <span className="score-number">
               {analysisResult.professionalism_score}%
             </span>
-            <span className="score-helper">
-              {analysisResult.professionalism_score >= 80
-                ? "Professional"
-                : analysisResult.professionalism_score >= 50
-                ? "Needs improvement"
-                : "Unprofessional"}
-            </span>
           </div>
 
           <div className="score-item">
             <span>Toxicity Score:</span>
             <span className="score-number">
               {analysisResult.toxicity_score}%
-            </span>
-            <span className="score-helper">
-              {analysisResult.toxicity_score <= 10
-                ? "Safe"
-                : analysisResult.toxicity_score <= 40
-                ? "Caution"
-                : "Highly toxic"}
             </span>
           </div>
 
@@ -239,9 +264,7 @@ const SpeechToText = () => {
                 ))}
               </ul>
             ) : (
-              <span className="badge badge-good">
-                No significant issues detected!
-              </span>
+              <span className="badge badge-good">No significant issues detected!</span>
             )}
           </div>
 
